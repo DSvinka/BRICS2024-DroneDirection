@@ -4,6 +4,7 @@ import {onMounted, ref} from "vue";
 import {useDisplay, useTheme} from "vuetify";
 
 import {mdiThemeLightDark} from "@mdi/js";
+import VideoStream from "./components/VideoStream.vue";
 
 const { smAndUp, md } = useDisplay()
 const theme = useTheme()
@@ -91,8 +92,9 @@ onMounted(() => {
     <v-container class="my-auto">
       <v-row>
         <v-col cols="12" md="9">
-          <!-- TODO: Заглушка для тестирования -->
-          <v-img src="https://www.dartdrones.com/wp-content/uploads/2017/03/Drone-FPV-Goggle.jpg" width="100%" type="image"/>
+          <v-card>
+            <video-stream/>
+          </v-card>
 
           <v-card class="mt-0 mt-md-2">
             <v-card-title class="text-center">Сила Сигнала</v-card-title>
