@@ -12,7 +12,7 @@
 
 ## Backend
 
-* [Page 2](backend/page-2.md)
+* [Описание API](backend/opisanie-api.md)
 
 ## Hardware
 
