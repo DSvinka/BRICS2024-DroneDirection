@@ -14,6 +14,4 @@ layout:
 
 # Блок схема проекта
 
-
-
-<figure><img src=".gitbook/assets/Схема Работы проекта.drawio (1).svg" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/Схема Работы проекта.drawio (2).svg" alt=""><figcaption></figcaption></figure>
