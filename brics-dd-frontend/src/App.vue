@@ -6,9 +6,34 @@ import {useDisplay, useTheme} from "vuetify";
 import {mdiThemeLightDark} from "@mdi/js";
 import VideoStream from "./components/VideoStream.vue";
 
+
+import {useNotification} from "@kyvg/vue3-notification";
+import {useSignalsStore} from "./stores/signals.store.js";
+import {storeToRefs} from "pinia";
+
+import {
+  sendTrackerStopCommand, sendTrackerCenteringCommand,
+  sendTrackerCalibrationCommand, sendTrackerSearchCommand
+} from "./services/api/api.tracker.js"
+
+import {
+  sendChannelAutoCommand, sendChannelDownCommand, sendChannelUpCommand
+} from "./services/api/api.channel.js"
+import {Notifications} from "@kyvg/vue3-notification";
+import {useConnectionsStore} from "./stores/connections.store.js";
+
+
+const { notify }  = useNotification()
+
 const { smAndUp, md } = useDisplay()
 const theme = useTheme()
 
+const signalsStore = useSignalsStore()
+const { signals } = storeToRefs(signalsStore)
+
+const connectionsStore = useConnectionsStore()
+const { webSocketInConnecting, webSocketConnected } = storeToRefs(connectionsStore)
+const { isNotConnected } = storeToRefs(connectionsStore)
 
 const radiantOptions = ref({
   units: "RSSI",
@@ -54,8 +79,6 @@ const radiant2Ref = ref(null);
 const radiant3Ref = ref(null);
 const radiant4Ref = ref(null);
 
-const signals = ref([40, 200, 50, 300])
-
 function toggleTheme () {
   theme.global.name.value = theme.global.current.value.dark ? 'lightTheme' : 'darkTheme'
 
@@ -75,70 +98,63 @@ function setRadiantColors(colors) {
   radiant3Ref.value.updateCanvas()
   radiant4Ref.value.updateCanvas()
 }
-
-onMounted(() => {
-  setInterval(() => {
-    // TODO: Рандомное изменение сигнала сделано для отладки. В будущем убрать.
-    signals.value[0] = Math.floor(Math.random() * 400)
-    signals.value[1] = Math.floor(Math.random() * 400)
-    signals.value[2] = Math.floor(Math.random() * 400)
-    signals.value[3] = Math.floor(Math.random() * 400)
-  }, 5000);
-})
 </script>
 
 <template>
   <v-app>
     <v-container class="my-auto">
+      <notifications position="bottom left" close-on-click :duration="3000"/>
       <v-row>
         <v-col cols="12" md="9">
-          <v-card>
-            <video-stream/>
+          <v-card class="d-flex justify-center align-center">
+            <video-stream />
           </v-card>
 
-          <v-card class="mt-0 mt-md-2">
-            <v-card-title class="text-center">Сила Сигнала</v-card-title>
+          <v-skeleton-loader class="mt-0 mt-md-2" :loading="isNotConnected" type="card">
+            <v-card class="mt-0 mt-md-2">
+              <v-card-title class="text-center">Сила Сигнала</v-card-title>
 
-            <template v-if="smAndUp">
-              <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+              <template v-if="smAndUp">
+                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
               <span>
                 <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
               </span>
-                <span>
+                  <span>
                 <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
               </span>
-                <span>
+                  <span>
                 <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
               </span>
-                <span>
+                  <span>
                 <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
               </span>
-              </div>
-            </template>
+                </div>
+              </template>
 
-            <template v-else>
-              <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
-                <div>
-                  <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
+              <template v-else>
+                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+                  <div>
+                    <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
+                  </div>
+                  <div>
+                    <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
+                  </div>
                 </div>
-                <div>
-                  <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
-                </div>
-              </div>
 
-              <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
-                <div>
-                  <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
+                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+                  <div>
+                    <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
+                  </div>
+                  <div>
+                    <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
+                  </div>
                 </div>
-                <div>
-                  <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
-                </div>
-              </div>
-            </template>
+              </template>
 
-            <div class="text-center">Сигнал (RSSI): 40 / 200 / 150 / 40</div>
-            <div class="text-center">Пинг (мс): 10</div>
-          </v-card>
+              <div class="text-center">Сигнал (RSSI): {{signals[0]}} / {{signals[1]}} / {{signals[2]}} / {{signals[3]}}</div>
+              <div class="text-center">Пинг (мс): 10</div>
+            </v-card>
+          </v-skeleton-loader>
         </v-col>
 
         <v-col cols="12" md="3">
@@ -147,10 +163,10 @@ onMounted(() => {
 
             <v-card-text>
 
-              <v-btn block color="info" class="d-block my-2 mx-auto">Поиск</v-btn>
-              <v-btn block color="info" class="d-block my-2 mx-auto">Центровка</v-btn>
-              <v-btn block color="success" class="d-block my-2 mx-auto">Калибровка</v-btn>
-              <v-btn block color="error" class="d-block my-2 mx-auto">Стоп</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendTrackerSearchCommand" block color="info" class="d-block my-2 mx-auto">Поиск</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendTrackerCenteringCommand" block color="info" class="d-block my-2 mx-auto">Центровка</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendTrackerCalibrationCommand" block color="success" class="d-block my-2 mx-auto">Калибровка</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendTrackerStopCommand" block color="error" class="d-block my-2 mx-auto">Стоп</v-btn>
             </v-card-text>
           </v-card>
 
@@ -158,9 +174,9 @@ onMounted(() => {
             <v-card-title class="text-center" v-text="md ? 'Канал' : 'Управление каналом'"/>
 
             <v-card-text>
-              <v-btn block color="info" class="d-block my-2 mx-auto">Канал Выше</v-btn>
-              <v-btn block color="info" class="d-block my-2 mx-auto">Канал Ниже</v-btn>
-              <v-btn block color="secondary" class="d-block my-2 mx-auto">Авто Канал</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendChannelUpCommand" block color="info" class="d-block my-2 mx-auto">Канал Выше</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendChannelDownCommand" block color="info" class="d-block my-2 mx-auto">Канал Ниже</v-btn>
+              <v-btn :loading="isNotConnected" @click="sendChannelAutoCommand" block color="secondary" class="d-block my-2 mx-auto">Авто Канал</v-btn>
             </v-card-text>
           </v-card>
         </v-col>
