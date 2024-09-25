@@ -22,9 +22,9 @@ layout:
 
 **Среда разработки:**&#x20;
 
-\- Frontend: JavaScript (Vue, Vuetify)&#x20;
+\- Frontend: JavaScript (Vue, Vuetify, Axios, Pinia)&#x20;
 
-\- Backend: Python (FastAPI, aiortc)&#x20;
+\- Backend: Python (FastAPI, starlette, pyserial)&#x20;
 
 \- Антенна Трекер: C lang&#x20;
 
