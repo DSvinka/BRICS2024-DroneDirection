@@ -3,6 +3,7 @@
 * [О проекте](README.md)
 * [Команда](komanda.md)
 * [Таблица Задач](tablica-zadach.md)
+* [Требования к системе](trebovaniya-k-sisteme.md)
 * [Блок схема проекта](blok-skhema-proekta.md)
 
 ## Frontend
