@@ -41,4 +41,4 @@
 
 ## Hardware
 
-* [Page 3](hardware/page-3.md)
+* [Компоненты](hardware/komponenty.md)
