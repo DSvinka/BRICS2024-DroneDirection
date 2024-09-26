@@ -7,6 +7,7 @@ import {useConnectionsStore} from "../stores/connections.store.js";
 import {storeToRefs} from "pinia";
 
 import { useNotification } from "@kyvg/vue3-notification";
+import {webSocketUrl} from "../services/api/api.base.js";
 
 const { notify }  = useNotification()
 
@@ -15,7 +16,6 @@ const { signals } = storeToRefs(signalsStore)
 
 const connectionsStore = useConnectionsStore()
 const { webSocketInConnecting, webSocketConnected } = storeToRefs(connectionsStore)
-const { checkTryAgain } = storeToRefs(connectionsStore)
 
 const frame = ref(null)
 const ws = ref(null)
@@ -28,10 +28,11 @@ function connect() {
 
   notify({title: "WebSocket", text: "Производится попытка подключения..."});
 
-  ws.value = new WebSocket("ws://localhost:8000/ws");
+  ws.value = new WebSocket(webSocketUrl);
 
   ws.value.onmessage = function(event) {
     let data = JSON.parse(JSON.parse(event.data));
+
     if (data.dataType === "img") {
       frame.value.src = "data:image/jpg;base64,"+data.img;
     }
@@ -39,6 +40,8 @@ function connect() {
     if (data.dataType === "data") {
       signals.value = data.signals
     }
+
+    connectionsStore.updateTime()
   };
 
   ws.value.onclose = function(event) {
@@ -46,6 +49,7 @@ function connect() {
     webSocketConnected.value = false;
 
     notify({type: "error", title: "WebSocket", text: `Не удалось произвести подключение!`});
+    connectionsStore.resetTime()
   };
 
   ws.value.onopen = function(event) {
@@ -53,6 +57,7 @@ function connect() {
     webSocketConnected.value = true;
 
     notify({type: "success", title: "WebSocket", text: "Подключение к успешно создано!"});
+    connectionsStore.resetTime()
   }
 }
 

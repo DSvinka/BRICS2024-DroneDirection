@@ -1,5 +1,9 @@
-# Vue 3 + Vite
+# Frontend часть проекта антенна трекера
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Инструкция по запуску:
+1. Установите **node.js** если этого не сделали;
+2. Находясь в дериктории с проектом, пропишите в консоль `npm install` для установки зависимостей;
+3. Переименуйте `.env.example` в `.env`;
+4. Измените значения в файле `.env` на свои;
+5. - Либо запустите тестовый сервер с помощью команды `npm run dev`
+   - Либо сделайте сборку проекта - `npm build` и загрузите файлы из папки `dist` на ваш веб сервер 

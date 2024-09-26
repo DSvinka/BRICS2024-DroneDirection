@@ -32,8 +32,7 @@ const signalsStore = useSignalsStore()
 const { signals } = storeToRefs(signalsStore)
 
 const connectionsStore = useConnectionsStore()
-const { webSocketInConnecting, webSocketConnected } = storeToRefs(connectionsStore)
-const { isNotConnected } = storeToRefs(connectionsStore)
+const { isNotConnected, pingMs } = storeToRefs(connectionsStore)
 
 const radiantOptions = ref({
   units: "RSSI",
@@ -110,51 +109,53 @@ function setRadiantColors(colors) {
             <video-stream />
           </v-card>
 
-          <v-skeleton-loader class="mt-0 mt-md-2" :loading="isNotConnected" type="card">
-            <v-card class="mt-0 mt-md-2">
-              <v-card-title class="text-center">Сила Сигнала</v-card-title>
+          <div class="d-flex justify-center align-center">
+            <v-skeleton-loader class="mt-0 mt-md-2" width="100%" :loading="isNotConnected" type="card">
+              <v-card class="mt-0 mt-md-2" width="100%">
+                <v-card-title class="text-center">Сила Сигнала</v-card-title>
 
-              <template v-if="smAndUp">
-                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
-              <span>
-                <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
-              </span>
-                  <span>
-                <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
-              </span>
-                  <span>
-                <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
-              </span>
-                  <span>
-                <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
-              </span>
-                </div>
-              </template>
+                <template v-if="smAndUp">
+                  <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+                    <span>
+                      <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
+                    </span>
+                    <span>
+                      <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
+                    </span>
+                    <span>
+                      <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
+                    </span>
+                    <span>
+                      <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
+                    </span>
+                  </div>
+                </template>
 
-              <template v-else>
-                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
-                  <div>
-                    <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
+                <template v-else>
+                  <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+                    <div>
+                      <radial-gauge ref="radiant1Ref" :value="signals[0]" :options="radiantOptions"/>
+                    </div>
+                    <div>
+                      <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
+                    </div>
                   </div>
-                  <div>
-                    <radial-gauge ref="radiant2Ref" :value="signals[1]" :options="radiantOptions"/>
-                  </div>
-                </div>
 
-                <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
-                  <div>
-                    <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
+                  <div class="d-flex justify-center align-center" style="margin-bottom: -50px; ">
+                    <div>
+                      <radial-gauge ref="radiant3Ref" :value="signals[2]" :options="radiantOptions"/>
+                    </div>
+                    <div>
+                      <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
+                    </div>
                   </div>
-                  <div>
-                    <radial-gauge ref="radiant4Ref" :value="signals[3]" :options="radiantOptions"/>
-                  </div>
-                </div>
-              </template>
+                </template>
 
-              <div class="text-center">Сигнал (RSSI): {{signals[0]}} / {{signals[1]}} / {{signals[2]}} / {{signals[3]}}</div>
-              <div class="text-center">Пинг (мс): 10</div>
-            </v-card>
-          </v-skeleton-loader>
+                <div class="text-center">Сигнал (RSSI): {{signals[0]}} / {{signals[1]}} / {{signals[2]}} / {{signals[3]}}</div>
+                <div class="text-center">Пинг (мс): {{ pingMs }}</div>
+              </v-card>
+            </v-skeleton-loader>
+          </div>
         </v-col>
 
         <v-col cols="12" md="3">
