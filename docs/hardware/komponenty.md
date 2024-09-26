@@ -31,7 +31,7 @@ layout:
 </div>
 
 * Дрон Clover
-* Arduino, Raspberry
+* Arduino Nano, Raspberry Pi 5
 * Сервопривод 90кг  2 шт
 * Сервопривод 25 кг  2 шт
 * LiPo АКБ
