@@ -73,7 +73,7 @@ onUnmounted(() => {
 
 <template>
   <v-skeleton-loader :loading="!webSocketConnected" width="100%" color="surface" type="image">
-    <img ref="frame" src="" alt="video">
+    <img ref="frame" src="" alt="video" style="object-fit: cover; width: 100%">
   </v-skeleton-loader>
 
   <v-btn v-if="!webSocketConnected" :loading="webSocketInConnecting" class="position-absolute" @click="connect">Попробовать ещё раз</v-btn>
