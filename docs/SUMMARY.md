@@ -31,14 +31,15 @@
 
 * [Демонстрационные видео](modul-e-zashita-proekta/demonstracionnye-video.md)
 
-## Frontend
-
-* [Макет веб-сайта](frontend/maket-veb-saita.md)
-
-## Backend
-
-* [Описание API](backend/opisanie-api.md)
-
 ## Hardware
 
 * [Компоненты](hardware/komponenty.md)
+
+## Frontend
+
+* [Макет веб-сайта](frontend/maket-veb-saita.md)
+* [Структура файлов проекта](frontend/struktura-failov-proekta.md)
+
+## Backend
+
+* [Описание](backend/opisanie.md)
