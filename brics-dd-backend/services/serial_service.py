@@ -39,11 +39,14 @@ class SerialService:
 
         # Если режим симуляции выключен - проверяем есть ли сообщения
         elif self.__serial.in_waiting:
-            response = self.__serial.readline()
+            response = (self.__serial.readline().decode()
+                        .replace("\n", "")
+                        .replace("\r", "")
+                        .split(' '))
 
             print(f"[Serial {self.__serial.name}] Serial Response: {response}")
 
-            self.signals = (response[0], response[1], response[2], response[3])
+            self.signals = (int(response[0]), int(response[1]), int(response[2]), int(response[3]))
 
 
     def send_command(self, command: CommandType):
