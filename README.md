@@ -4,7 +4,7 @@
 
 ## Ссылки на ресурсы  
 [Таблица со списком задач](https://docs.google.com/spreadsheets/d/1A1f-O5HeJRTjLDiV-y2a6LJRf4drh6zy8DOEVwFSAVk/edit?usp=sharing)  
-[Тестирование системы](https://docs.google.com/spreadsheets/d/1uSBIUsIO49EikeUhVxEYHchF7hZGnlVvheCyyERnIIw/)
+[Тестирование системы](https://docs.google.com/spreadsheets/d/1JsYHdcmoJbUDI1I6zfz9Vw1-koKo24QfbZgDja-xBPI/edit?usp=sharing)
 
 ## Система наведения направленной антенны без использования системы навигации для увеличения дальности связи дронов
 
