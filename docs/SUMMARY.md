@@ -15,9 +15,7 @@
 
 * [Тестирование](modul-c-otladka/testirovanie.md)
 * [Отчёт о тестировании](modul-c-otladka/otchyot-o-testirovanii/README.md)
-  * [Возможность отслеживать положение квадрокоптера в пространстве](modul-c-otladka/otchyot-o-testirovanii/vozmozhnost-otslezhivat-polozhenie-kvadrokoptera-v-prostranstve.md)
   * [Автоматическая подстройка угла антенны для наиболее эффективного приёма сигнала](modul-c-otladka/otchyot-o-testirovanii/avtomaticheskaya-podstroika-ugla-antenny-dlya-naibolee-effektivnogo-priyoma-signala.md)
-  * [Точность определения положения должна составлять не менее ±15 градусов по горизонтали и ±25 градусов](modul-c-otladka/otchyot-o-testirovanii/tochnost-opredeleniya-polozheniya-dolzhna-sostavlyat-ne-menee-15-gradusov-po-gorizontali-i-25-gradus.md)
   * [Время отклика системы должно быть минимальным для предотвращения потери связи с дроном.](modul-c-otladka/otchyot-o-testirovanii/vremya-otklika-sistemy-dolzhno-byt-minimalnym-dlya-predotvrasheniya-poteri-svyazi-s-dronom..md)
   * [Беспроводное подключение для использования и управления антенным трекером](modul-c-otladka/otchyot-o-testirovanii/besprovodnoe-podklyuchenie-dlya-ispolzovaniya-i-upravleniya-antennym-trekerom.md)
   * [Система должна работать от LiPo аккумуляторов, совместимых с БПЛА](modul-c-otladka/otchyot-o-testirovanii/sistema-dolzhna-rabotat-ot-lipo-akkumulyatorov-sovmestimykh-s-bpla.md)
@@ -31,14 +29,15 @@
 
 * [Демонстрационные видео](modul-e-zashita-proekta/demonstracionnye-video.md)
 
+## Hardware
+
+* [Компоненты](hardware/komponenty.md)
+
 ## Frontend
 
 * [Макет веб-сайта](frontend/maket-veb-saita.md)
+* [Структура файлов проекта](frontend/struktura-failov-proekta.md)
 
 ## Backend
 
-* [Описание API](backend/opisanie-api.md)
-
-## Hardware
-
-* [Page 3](hardware/page-3.md)
+* [Описание](backend/opisanie.md)
