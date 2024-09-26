@@ -1,9 +1,8 @@
 # Table of contents
 
-* [О проекте](README.md)
-
 ## Модуль A: Планирование
 
+* [О проекте](README.md)
 * [Команда](modul-a-planirovanie/komanda.md)
 * [Таблица Задач](modul-a-planirovanie/tablica-zadach.md)
 
