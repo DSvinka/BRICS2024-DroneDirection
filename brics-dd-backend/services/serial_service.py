@@ -1,6 +1,7 @@
 import random
 
 from serial import Serial
+from serial.serialutil import SerialException
 
 from models.command_type import CommandType
 
@@ -12,9 +13,15 @@ class SerialService:
     __simulate_mode: bool
     __simulate_counter: int = 0
 
-    def __init__(self, port: str='/dev/ttyUSB0', baudrate: int=9600, simulate_mode: bool = False):
+    def __init__(self, ports: list[str], baudrate: int=9600, simulate_mode: bool = False):
         if not simulate_mode:
-            self.__serial = Serial(port, baudrate, timeout=1)
+            for port in ports:
+                print(f"[Serial {port}] Connecting...")
+                try:
+                    self.__serial = Serial(port, baudrate, timeout=1)
+                    print(f"[Serial {port}] Connected successfully!")
+                except SerialException:
+                    print(f"[Serial {port}] Not connected")
 
         self.__simulate_mode = simulate_mode
         self.signals = (-1, -1, -1, -1)
