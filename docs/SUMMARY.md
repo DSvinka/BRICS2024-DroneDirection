@@ -47,4 +47,4 @@
 * [Сервисы](backend/servisy.md)
 * [Serial Команды](backend/serial-komandy.md)
 * [WebSocket](backend/websocket.md)
-* [Endpoins](backend/endpoins.md)
+* [Endpoins](backend/opisanie.md)
