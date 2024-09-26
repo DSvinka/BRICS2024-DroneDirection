@@ -25,11 +25,11 @@
 
 ## Модуль D: Подготовка документации, презентации, оформление  проекта в продукт
 
-* [Page 1](modul-d-podgotovka-dokumentacii-prezentacii-oformlenie-proekta-v-produkt/page-1.md)
+* [Презентация ](modul-d-podgotovka-dokumentacii-prezentacii-oformlenie-proekta-v-produkt/prezentaciya.md)
 
 ## Модуль E: Защита проекта
 
-* [Page 2](modul-e-zashita-proekta/page-2.md)
+* [Демонстрационные видео](modul-e-zashita-proekta/demonstracionnye-video.md)
 
 ## Frontend
 
