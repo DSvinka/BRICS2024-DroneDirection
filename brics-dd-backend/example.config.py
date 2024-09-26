@@ -1,0 +1,7 @@
+SERIAL_SIMULATION_MODE = "/dev/ttyUSB0"
+ARDUINO_SERIAL_PORT = "/dev/ttyUSB0"
+ARDUINO_SERIAL_BAUDRATE = 9600
+
+
+# 0 - первое подключенное устройство
+CAMERA_INDEX = 0

@@ -10,17 +10,20 @@ from models.command_type import CommandType
 from services.serial_service import SerialService
 from services.video_processing_service import VideoProcessingService
 
-app = FastAPI()
-serial_service = SerialService("/dev/ttyUSB0", 9600, simulate_mode=True)
-video_processing_service = VideoProcessingService(camera_index=0)
+from config import ARDUINO_SERIAL_PORT, ARDUINO_SERIAL_BAUDRATE, SERIAL_SIMULATION_MODE, CAMERA_INDEX
 
-# Video sender websocket
+app = FastAPI()
+serial_service = SerialService(ARDUINO_SERIAL_PORT, ARDUINO_SERIAL_BAUDRATE, simulate_mode=SERIAL_SIMULATION_MODE)
+video_processing_service = VideoProcessingService(camera_index=CAMERA_INDEX)
+
+
 @app.websocket("/ws")
 async def get_stream(
         websocket: WebSocket,
         serial: SerialService=Depends(lambda: serial_service),
         video_processing: VideoProcessingService=Depends(lambda: video_processing_service)
 ):
+    """WebSocket для отправки Видеопотока с Приемника и Силы Сигнала получаемых с Arduino"""
     await websocket.accept()
     try:
         # TODO: Попробовать добавить Threading для уменьшения нагрузки при подключении нескольких клиентов.
@@ -111,4 +114,4 @@ app.openapi = custom_openapi
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=3000)
