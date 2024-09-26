@@ -1,6 +1,6 @@
 # BRICS2024-DroneDirection  
 
-СМОТРИ ПОЛНУЮ ВЕРСИЮ ДАННОЙ ДОКУМЕНТАЦИИ НА [GITBOOK](https://drone-direction.dsvinka.ru/)  
+[СМОТРИ ПОЛНУЮ ВЕРСИЮ ДАННОЙ ДОКУМЕНТАЦИИ НА GITBOOK](https://drone-direction.dsvinka.ru/)  
 
 ## Ссылки на ресурсы  
 [Полная Документация](https://drone-direction.dsvinka.ru/)  
