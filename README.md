@@ -10,7 +10,7 @@
 - Frontend: JavaScript (Vue, Vuetify) 
 - Backend: Python (FastAPI, aiortc) 
 - Антенна Трекер: C lang 
-**Оборудование: **
+**Оборудование:**
 - Дрон: Клевер, Foxeer Lollipop 4, TBS UNITY PRO32 5G8 HV
 - Сервер: Raspberry Pi 
 - Антена Трекер: Arduino, SkyDroid PF V 5.8G
