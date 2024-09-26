@@ -1,4 +1,4 @@
-# Endpoins
+# Endpoints
 
 {% swagger src="../.gitbook/assets/openapi.json" path="/api/tracker/search" method="post" %}
 [openapi.json](../.gitbook/assets/openapi.json)
