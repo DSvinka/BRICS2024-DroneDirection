@@ -1,20 +1,4 @@
-# Описание
-
-## **Serial Команды** (для Arduino)
-
-***
-
-<div align="left" data-full-width="true">
-
-<figure><img src="../.gitbook/assets/photo_5452167576332394720_x.jpg" alt="" width="243"><figcaption></figcaption></figure>
-
-</div>
-
-
-
-## **Endpoints**
-
-***
+# Endpoins
 
 {% swagger src="../.gitbook/assets/openapi.json" path="/api/tracker/search" method="post" %}
 [openapi.json](../.gitbook/assets/openapi.json)

@@ -35,9 +35,16 @@
 
 ## Frontend
 
-* [Макет веб-сайта](frontend/maket-veb-saita.md)
+* [Установка и Запуск](frontend/ustanovka-i-zapusk.md)
 * [Структура файлов проекта](frontend/struktura-failov-proekta.md)
+* [Макет веб-сайта](frontend/maket-veb-saita.md)
+* [Хранилище состояния](frontend/khranilishe-sostoyaniya.md)
 
 ## Backend
 
-* [Описание](backend/opisanie.md)
+* [Установка и Запуск](backend/ustanovka-i-zapusk.md)
+* [Структура файлов проекта](backend/struktura-failov-proekta.md)
+* [Сервисы](backend/servisy.md)
+* [Serial Команды](backend/serial-komandy.md)
+* [WebSocket](backend/websocket.md)
+* [Endpoins](backend/endpoins.md)
