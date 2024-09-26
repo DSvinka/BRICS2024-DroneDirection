@@ -14,7 +14,7 @@ layout:
 
 # Компоненты
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/photo_2024-09-26_18-43-55.jpg" alt=""><figcaption></figcaption></figure>
 
 <div>
 
