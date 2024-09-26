@@ -1,4 +1,34 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Компоненты
+
+<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
+
+<div>
+
+<figure><img src="../.gitbook/assets/photo_2024-09-26_20-59-23.jpg" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/photo_2024-09-26_20-59-19.jpg" alt=""><figcaption></figcaption></figure>
+
+ 
+
+<figure><img src="../.gitbook/assets/photo_2024-09-26_20-59-14.jpg" alt=""><figcaption></figcaption></figure>
+
+</div>
 
 * Дрон Clover
 * Arduino, Raspberry
