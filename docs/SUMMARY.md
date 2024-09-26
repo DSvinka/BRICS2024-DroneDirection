@@ -1,10 +1,35 @@
 # Table of contents
 
+## Модуль A: Планирование
+
 * [О проекте](README.md)
-* [Команда](komanda.md)
-* [Таблица Задач](tablica-zadach.md)
-* [Требования к системе](trebovaniya-k-sisteme.md)
-* [Блок схема проекта](blok-skhema-proekta.md)
+* [Команда](modul-a-planirovanie/komanda.md)
+* [Таблица Задач](modul-a-planirovanie/tablica-zadach.md)
+
+## Модуль B: Разработка
+
+* [Список требований к системе](modul-b-razrabotka/spisok-trebovanii-k-sisteme.md)
+* [Блок схема проекта](modul-b-razrabotka/blok-skhema-proekta.md)
+
+## Модуль C: Отладка
+
+* [Тестирование](modul-c-otladka/testirovanie.md)
+* [Отчёт о тестировании](modul-c-otladka/otchyot-o-testirovanii/README.md)
+  * [Возможность отслеживать положение квадрокоптера в пространстве](modul-c-otladka/otchyot-o-testirovanii/vozmozhnost-otslezhivat-polozhenie-kvadrokoptera-v-prostranstve.md)
+  * [Автоматическая подстройка угла антенны для наиболее эффективного приёма сигнала](modul-c-otladka/otchyot-o-testirovanii/avtomaticheskaya-podstroika-ugla-antenny-dlya-naibolee-effektivnogo-priyoma-signala.md)
+  * [Точность определения положения должна составлять не менее ±15 градусов по горизонтали и ±25 градусов](modul-c-otladka/otchyot-o-testirovanii/tochnost-opredeleniya-polozheniya-dolzhna-sostavlyat-ne-menee-15-gradusov-po-gorizontali-i-25-gradus.md)
+  * [Время отклика системы должно быть минимальным для предотвращения потери связи с дроном.](modul-c-otladka/otchyot-o-testirovanii/vremya-otklika-sistemy-dolzhno-byt-minimalnym-dlya-predotvrasheniya-poteri-svyazi-s-dronom..md)
+  * [Беспроводное подключение для использования и управления антенным трекером](modul-c-otladka/otchyot-o-testirovanii/besprovodnoe-podklyuchenie-dlya-ispolzovaniya-i-upravleniya-antennym-trekerom.md)
+  * [Система должна работать от LiPo аккумуляторов, совместимых с БПЛА](modul-c-otladka/otchyot-o-testirovanii/sistema-dolzhna-rabotat-ot-lipo-akkumulyatorov-sovmestimykh-s-bpla.md)
+  * [Использование легких и прочных материалов](modul-c-otladka/otchyot-o-testirovanii/ispolzovanie-legkikh-i-prochnykh-materialov.md)
+
+## Модуль D: Подготовка документации, презентации, оформление  проекта в продукт
+
+* [Презентация ](modul-d-podgotovka-dokumentacii-prezentacii-oformlenie-proekta-v-produkt/prezentaciya.md)
+
+## Модуль E: Защита проекта
+
+* [Демонстрационные видео](modul-e-zashita-proekta/demonstracionnye-video.md)
 
 ## Frontend
 
